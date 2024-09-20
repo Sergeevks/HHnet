@@ -64,7 +64,7 @@ int main()
         m[i] = 0.1;
         h[i] = 0.1;
     }
-    x[2] = 50;
+    x[2] = 50;                                          // Specific initial condition for 2nd HH neuron
     
     
     float Iext[N];											// external current
@@ -118,6 +118,8 @@ int main()
                 if (i%10 == 0)                 
                     fprintf(file, "%f\t%d\t%f\n", T, j, x[j]);//, m[j], h[j], n[j], 36*n[j]*n[j]*n[j]*n[j]*(x[j]-12) + 120*m[j]*m[j]*m[j]*h[j]*(x[j]+115) + 0.3*(x[j]+10.613));
 				}
+				if (i%10000==0)
+                    printf("%d\%, T=%f\n", (int)(100*T/t), T);
    
             if (i%10 == 0) 
                 fprintf(file, "\n");
